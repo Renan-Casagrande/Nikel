@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikel - Home</title>
 
+    <!-- Bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <!-- Link para o meu css -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body id="app">
 
+    <!-- Cabecalho -->
     <header>
         <nav class="navbar navbar-expand navbar-light bg-white">
-            <div class="container-fluid">
+            
+            <!-- Logo Nikel-->
+            <div class="container-fluid">                
                 <a class="navbar-brand" href="#">
                     <img src="./assets/images/nikel-small-logo.png" alt="logo nikel" class="img-fluid" srcset="">    
                 </a>
@@ -21,7 +28,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <div class="d-flex menu">
+                    
+                    <!-- Logos Menu -->
+                    <div class="d-flex menu">                        
                         <a href="home.html"><button class="btn" type="button"><i class="bi bi-house-door-fill fs-4 color-secondary"></i></button></a>
                         <a href="transactions.html"><button class="btn" type="button"><i class="bi bi-currency-exchange fs-4"></i></button></a>
                         
@@ -34,29 +43,39 @@
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
+
         </nav>
     </header>
+
     <main>
         <div class="container-lg">
-
             <div class="row">
+
+                <!-- Bloco da esqueda - Saldo e icone -->
                 <div class="col d-flex mt-4 justify-content-start align-items-center">
                     <i class="bi bi-cash-coin color-primary icon-detail"></i>
                     <span class="fs-2" id="total">R$ 0,00</span>
                 </div>
+
+                <!-- Bloco da direita - logo moeda-->
                 <div class="col d-flex mt-4 justify-content-end">
                     <div class="text-center">
                         <img src="./assets/images/coins-small.png" alt="image coins" srcset="">
                     </div>
                 </div>
+
             </div>
 
+            <!-- Tabela-->
             <div class="row">
                 <div class="col-12 info shadow-lg">
                     <div class="container">
-                        <div class="row">
+
+                        <!-- Cabeçalho da Tabela-->
+                        <div class="row">                            
                             <div class="col-6">
                                 <span class="fs-4">Entradas <i class="bi bi-arrow-down-circle fs-2 align-middle"></i></span>
                             </div>
@@ -67,19 +86,24 @@
                                 <hr>
                             </div>
                         </div>
-
+                        
                         <div class="row">
+                            <!-- Dados - Entradas -->
                             <div class="col-6">
                                 <div class="container p-0" id="cash-in-list">
                                     
                                 </div>
                             </div>
+
+                            <!-- Dados - Saidas -->
                             <div class="col-6">
                                 <div class="container p-0" id="cash-out-list">
                                     
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Botao VEr todas-->
                         <div class="col-12 mb-4">
                             <button type="button" class="btn button-default" id="transactions-button">Ver todas</button>
                         </div>
@@ -87,6 +111,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Botao Add movimentaçao -->
             <button class="btn button-float" data-bs-toggle="modal"
             data-bs-target="#transactions-modal"><i class="bi bi-plus"></i></button>
 
@@ -95,25 +121,40 @@
         <!-- Modal -->
         <div class="modal fade" id="transactions-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
+
                 <div class="modal-content">
+
+                    <!-- Cabecalho do Modal -->
                     <div class="modal-header">
                         <h5 class="modal-title fs-5" id="exampleModalLabel">Adicionar Lançamento.</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
+                    <!-- Formulario de Add lançamento -->
                     <form id="transactions-form">
-                        <div class="modal-body">                        
+
+                        <!-- Campos do formulario -->
+                        <div class="modal-body">    
+                            
+                            <!-- Campo do Valor -->
                             <div class="mb-3">
                                 <label for="value-input" class="form-label">Valor</label>
                                 <input type="number" step="any" class="form-control" id="value-input" aria-describedby="emailHelp" required>
                             </div>
+
+                            <!-- Campo da Descriçao -->
                             <div class="mb-3">
                                 <label for="description-input" class="form-label">Descriçao</label>
                                 <input type="text" class="form-control" id="description-input" required>
                             </div>
+
+                            <!-- Campo da Data -->
                             <div class="mb-3">
                                 <label for="date-input" class="form-label">Data</label>
                                 <input type="date" class="form-control" id="date-input" required>
                             </div>
+
+                            <!-- Campo do check (entrada/saida) -->
                             <div class="mb-3">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="type-input" id="inlineRadio1" value="1" checked>
@@ -125,6 +166,8 @@
                                 </div>                                
                             </div>
                         </div>
+
+                        <!-- Botoes do Formulario/Add/Modal-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary button-cancel" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn button-default">Adicionar</button>
@@ -133,10 +176,13 @@
                 </div>
             </div>
         </div>
-
+        
     </main>
 
+    <!-- Bootstrap Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Meu JavaScript -->
     <script src="./js/home.js"></script>
 </body>
+
 </html>
